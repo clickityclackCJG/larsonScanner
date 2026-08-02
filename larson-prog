@@ -1,0 +1,26 @@
+Timer1(IN := NOT Timer1.Q, PT := T#1s);
+IF Timer1.Q and lightPos = FALSE THEN
+    lightNum := lightNum + 1;
+END_IF;
+IF Timer1.Q and lightPos = true THEN
+    lightNum := lightNum - 1;
+END_IF;
+IF lightNum = 2 THEN
+    lightPos := true;    
+END_IF;
+IF lightNum = 0 THEN
+    lightPos := false;
+END_IF;
+IF NOT Timer1.Q THEN
+    lightZero := FALSE;
+    lightOne := FALSE;
+    lightOne := FALSE;
+END_IF;
+CASE lightNum OF
+    0:
+        lightZero  := TRUE;
+    1:
+        lightOne := TRUE;
+    2:
+        lightOne := TRUE;
+END_CASE;
